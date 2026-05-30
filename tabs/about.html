@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>About - AHMAD BOOK STORE</title>
+    <link rel="stylesheet" href="../style.css"/>
+    <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/5606/5606108.png">
+    <script src="https://kit.fontawesome.com/3c3ae5164d.js" crossorigin="anonymous"></script>
+    <style>
+
+        .search-section{
+            padding:30px 20px;
+            text-align:center;
+            background:#ffd700;
+        }
+
+        .search-section input{
+            width:90%;
+            max-width:500px;
+            padding:15px;
+            border:none;
+            border-radius:8px;
+            font-size:18px;
+        }
+
+        .products{
+            display:flex;
+            flex-wrap:wrap;
+            justify-content:center;
+            gap:25px;
+            padding:50px 20px;
+        }
+
+        .product-card{
+            width:500px;
+            background:white;
+            border-radius:12px;
+            overflow:hidden;
+            box-shadow:0 5px 15px rgba(0,0,0,0.2);
+            transition:0.3s;
+        }
+
+        .product-card:hover{
+            transform:translateY(-8px);
+        }
+
+        .product-card img{
+            width:100%;
+            height:220px;
+            object-fit:cover;
+        }
+
+        .product-info{
+            padding:15px;
+        }
+
+        .product-info h3{
+            color:#0057b7;
+            margin-bottom:10px;
+        }
+
+        .price{
+            color:#ff6600;
+            font-weight:bold;
+            margin:10px 0;
+        }
+
+        .buy-btn{
+            width:100%;
+            padding:12px;
+            border:none;
+            background:#0057b7;
+            color:white;
+            border-radius:6px;
+            cursor:pointer;
+            font-size:16px;
+        }
+
+        .buy-btn:hover{
+            background:#003f88;
+        }
+
+        @media(max-width:768px){
+
+            .desktop-nav{
+                display:none;
+            }
+
+            .menu-btn{
+                display:block;
+            }
+
+            .product-card{
+                width:100%;
+                max-width:500px;
+            }
+        }
+
+        @media(min-width:769px){
+
+            .menu-btn{
+                display:none;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div id="sidebar" class="sidebar">
+        <a href="javascript:void(0)" class="close-btn" onclick="closeMenu()">×</a>
+        <a href="../index.html">Home</a>
+        <a href="toys.html">Toys</a>
+        <a href="stationery.html">Stationery</a>
+        <a href="contact.html">Contact</a>
+        <a href="about.html">About</a>
+    </div>
+
+    <!-- Header -->
+    <header>
+
+        <span class="menu-btn" onclick="openMenu()">☰</span>
+
+        <div class="header-text">
+            <h1>AHMAD BOOK STORE</h1>
+            <p>Stationery Collection</p>
+        </div>
+
+        <nav class="desktop-nav">
+            <a href="../index.html">Home</a>
+            <a href="toys.html">Toys</a>
+            <a href="stationery.html">Stationery</a>
+            <a href="contact.html">Contact</a>
+            <a href="about.html">About</a>
+        </nav>
+
+    </header>
+    
+    <section class="products" id="productList">
+
+    <div class="product-card">
+            <div class="product-info">
+                <h3>About Ahmad Book Centre</h3>
+                <p>Welcome to Ahmad Book Centre, your trusted destination for quality stationery, fun toys, and useful everyday electronics. We are dedicated to providing a wide range of products that meet the needs of students, children, parents, and professionals.</p><br>
+                <p>At Ahmad Book Centre, you'll find an excellent selection of stationery items including notebooks, pens, pencils, art supplies, school accessories, and office essentials. We also offer a variety of toys that inspire creativity, learning, and entertainment for children of all ages.</p><br>
+                <p>In addition, we stock practical electronic products such as portable hand fans, kids' writing tablets, and other useful gadgets designed to make daily life easier and more enjoyable.</p><br>
+                <p>Our goal is to provide high-quality products at affordable prices while delivering excellent customer service. Whether you're shopping for school supplies, gifts, toys, or everyday essentials, Ahmad Book Centre is here to serve you.</p><br>
+                <p>Thank you for choosing Ahmad Book Centre. We look forward to being a part of your learning, creativity, and everyday needs.</p>
+            </div>
+    </div>
+
+    </body>
+    </section>
+       <!-- Footer -->
+    <footer>
+        <p>© 2026 AHMAD BOOK STORE | All Rights Reserved</p>
+        <p>📞 0333-0638689</p>
+        <a href="https://wa.me/923330638689" target="_blank" style="color: lime;"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="https://www.instagram.com/ahmadbookcentre24/" target="_blank" style="color: magenta;"><i class="fa-brands fa-instagram"></i></a>
+        <a href="tel:+923330638689"><i class="fa-solid fa-phone" style="color: aqua;"></i></a>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+
+        function openMenu() {
+            document.getElementById("sidebar").style.width = "250px";
+        }
+
+        function closeMenu() {
+            document.getElementById("sidebar").style.width = "0";
+        }
+
+        function searchProducts() {
+
+            let input = document.getElementById("searchInput").value.toLowerCase();
+
+            let cards = document.getElementsByClassName("product-card");
+
+            for(let i = 0; i < cards.length; i++) {
+
+                let title = cards[i].getElementsByTagName("h3")[0];
+
+                if(title.innerHTML.toLowerCase().indexOf(input) > -1) {
+                    cards[i].style.display = "";
+                } else {
+                    cards[i].style.display = "none";
+                }
+
+            }
+
+        }
+
+    </script>
+
+</body>
+</html>

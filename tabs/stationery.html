@@ -1,0 +1,1378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Stationery - AHMAD BOOK STORE</title>
+    <link rel="stylesheet" href="../style.css"/>
+    <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/5606/5606108.png">
+    <script src="https://kit.fontawesome.com/3c3ae5164d.js" crossorigin="anonymous"></script>
+    <style>
+
+.search-section{
+    padding:45px 20px;
+    text-align:center;
+    background:linear-gradient(135deg,#ffd700,#ffe96a);
+}
+
+.search-section input{
+    width:90%;
+    max-width:550px;
+    padding:16px 22px;
+    border:none;
+    border-radius:50px;
+    font-size:18px;
+    outline:none;
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+    transition:.3s;
+}
+
+.search-section input:focus{
+    transform:scale(1.02);
+    box-shadow:0 15px 35px rgba(0,87,183,.2);
+}
+
+.search-section p{
+    margin-top:15px;
+    font-weight:600;
+    color:#003366;
+}
+
+.products{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(220px,220px));
+    justify-content:center;
+    gap:25px;
+    padding:60px 20px;
+}
+
+.product-card{
+    width:220px;
+    background:white;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(0,0,0,.12);
+    transition:.35s;
+    animation:fadeUp .6s ease;
+}
+
+.product-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 20px 45px rgba(0,87,183,.18);
+}
+
+.product-card img{
+    width:100%;
+    height:170px;
+    object-fit:cover;
+    transition:.4s;
+}
+
+.product-card:hover img{
+    transform:scale(1.05);
+}
+
+.product-info{
+    padding:15px;
+}
+
+.product-info h3{
+    color:#0057b7;
+    font-size:18px;
+    margin-bottom:8px;
+}
+
+.price{
+    color:#ff6600;
+    font-weight:700;
+    font-size:18px;
+    margin:10px 0;
+}
+
+.buy-btn{
+    width:100%;
+    padding:10px;
+    border:none;
+    border-radius:30px;
+    background:linear-gradient(135deg,#0057b7,#0078ff);
+    color:white;
+    cursor:pointer;
+    font-size:14px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.buy-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px rgba(0,87,183,.3);
+}
+
+.whatsapp-float{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#25D366;
+    color:white;
+    padding:12px 18px;
+    border-radius:50px;
+    text-decoration:none;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:14px;
+    font-weight:600;
+    box-shadow:0 10px 25px rgba(37,211,102,.4);
+    z-index:999;
+    animation:pulse 2s infinite;
+}
+
+.whatsapp-float i{
+    font-size:24px;
+}
+
+.whatsapp-float:hover{
+    animation:none;
+    transform:scale(1.05);
+}
+
+@keyframes pulse{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.05);}
+    100%{transform:scale(1);}
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@media(max-width:768px){
+
+    .product-card{
+        width:100%;
+        max-width:250px;
+    }
+
+    .search-section{
+        padding:35px 15px;
+    }
+
+    .search-section input{
+        font-size:16px;
+        padding:14px 20px;
+    }
+
+    .whatsapp-float span{
+        display:none;
+    }
+}
+
+</style>
+
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div id="sidebar" class="sidebar">
+        <a href="javascript:void(0)" class="close-btn" onclick="closeMenu()">×</a>
+        <a href="../index.html">Home</a>
+        <a href="toys.html">Toys</a>
+        <a href="stationery.html">Stationery</a>
+        <a href="contact.html">Contact</a>
+        <a href="about.html">About</a>
+    </div>
+
+    <!-- Header -->
+    <header>
+
+        <span class="menu-btn" onclick="openMenu()">☰</span>
+
+        <div class="header-text">
+            <h1>AHMAD BOOK STORE</h1>
+            <p>Stationery Collection</p>
+        </div>
+
+        <nav class="desktop-nav">
+            <a href="../index.html">Home</a>
+            <a href="toys.html">Toys</a>
+            <a href="stationery.html">Stationery</a>
+            <a href="contact.html">Contact</a>
+            <a href="about.html">About</a>
+        </nav>
+
+    </header>
+
+    <!-- Search -->
+    <section class="search-section">
+        <input type="text" id="searchInput" placeholder="Search stationery items..." onkeyup="searchProducts()">
+        <p>For Orders Message 0333-0638689 On Whatsapp!</p>
+    </section>
+
+    <!-- Products -->
+    <section class="products" id="productList">
+
+        <div class="product-card">
+            <img src="https://tse1.mm.bing.net/th/id/OIP.PxWaGaZbtw7u6ZpO0QRT6AHaHa?rs=1&pid=ImgDetMain&o=7&rm=3">
+            <div class="product-info">
+                <h3>Piano Pen</h3>
+                <p class="price">30 RS</p>
+                <button class="buy-btn">Buy Now</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="https://media.naheed.pk/catalog/product/cache/2f2d0cb0c5f92580479e8350be94f387/1/0/1052181-1.jpg">
+            <div class="product-info">
+                <h3>Glue Stick</h3>
+                <p class="price">120 RS (8ml) / 300 RS (30ml)</p>
+                <button class="buy-btn">Buy Now</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="https://cdn.shopify.com/s/files/1/0132/0583/1737/files/pianofibertipmarkerblue.webp?v=1740489151">
+            <div class="product-info">
+                <h3>Blue Marker</h3>
+                <p class="price">20 RS</p>
+                <button class="buy-btn">Buy Now</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="https://img.drz.lazcdn.com/static/pk/p/bfea51705c075c74902ca8ae34e670a2.jpg_960x960q80.jpg_.webp">
+            <div class="product-info">
+                <h3>Cut Marker</h3>
+                <p class="price">30 RS / Double Sided 60 RS</p>
+                <button class="buy-btn">Buy Now</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="https://lahorebooks.pk/image/cache/catalog/marker%201-800x800.jpg">
+            <div class="product-info">
+                <h3>Piano White Board Marker</h3>
+                <p class="price">70 RS</p>
+                <button class="buy-btn">Buy Now</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgGfaYBvvANRmcJsFUVf4W-2Tn4BwGemlhBg&s">
+            <div class="product-info">
+                <h3>Piano Permanent Marker</h3>
+                <p class="price">70 RS</p>
+                <button class="buy-btn">Buy Now</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="https://thestationers.pk/cdn/shop/products/dollar-my-pencil-2hb-12-piecesbox-the-stationers-1.jpg?v=1708444824">
+            <div class="product-info">
+                <h3>Pencil</h3>
+                <p class="price">20 RS</p>
+                <button class="buy-btn">Buy Now</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="https://restomart.pk/wp-content/uploads/2024/10/Sharpner-%E2%80%93-Pack-of-24.jpg">
+            <div class="product-info">
+                <h3>Sharpners</h3>
+                <p class="price">10 / 15 / 20 RS</p>
+                <button class="buy-btn">Buy Now</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="https://static-01.daraz.pk/p/a12c0a6fed3a14713de3b75ab9c8b04e.jpg">
+            <div class="product-info">
+                <h3>Eraser</h3>
+                <p class="price">10 / 15 / 20 RS</p>
+                <button class="buy-btn">Buy Now</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="https://www.saleemibookdepot.com/cdn/shop/files/Oro-Inventer-RollerBall-Pen-Saleemi-Book-Depot-in-42231130128687.webp?v=1753882128">
+            <div class="product-info">
+                <h3>ORO Inventer Rollerball Pen</h3>
+                <p class="price">60 RS</p>
+                <button class="buy-btn">Buy Now</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="https://purchaser.com.pk/images/detailed/14/blue_p.jpg">
+            <div class="product-info">
+                <h3>Dollar Pointer</h3>
+                <p class="price">50 RS</p>
+                <button class="buy-btn">Buy Now</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="https://katib.pk/cdn/shop/files/SP-10-Fountain-Ink-Pen-Dollar-for-Accurate-Writing-Lahore-Stationary-1_1200x1200.jpg?v=1730454765">
+            <div class="product-info">
+                <h3>Ink Pen</h3>
+                <p class="price">70 / 100 / 120 / 130 / 150 / 180 / 200 RS</p>
+                <button class="buy-btn">Buy Now</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="https://karachistationers.com/cdn/shop/products/1_e280b9fe-7bbe-44fe-9af2-2dca7a64d07c.jpg?v=1637158444">
+            <div class="product-info">
+                <h3>Sticky Notes</h3>
+                <p class="price">120 RS</p>
+                <button class="buy-btn">Buy Now</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="https://gift4u.pk/wp-content/uploads/2025/04/Day-Planner-Notebook-Diary-3.webp">
+            <div class="product-info">
+                <h3>Diary</h3>
+                <p class="price">50 / 150 / 450 / 500 / 550 / 650 RS</p>
+                <button class="buy-btn">Buy Now</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="https://zartart.com.au/cdn/shop/files/SCZ065.jpg?v=1731295092&width=1500">
+            <div class="product-info">
+                <h3>Scissors</h3>
+                <p class="price">80 / 150 RS</p>
+                <button class="buy-btn">Buy Now</button>
+            </div>
+        </div>
+
+
+<div class="product-card">
+    <img src="https://nayabazar.pk/images/products/eHDsPgeZuAPXAT0.webp">
+    <div class="product-info">
+        <h3>Ink Remover</h3>
+        <p class="price">40 RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+
+<div class="product-card">
+    <img src="https://static3.webx.pk/files/4688/Images/oro-mathadox-geometry-box-1-4688-1922787-261123050650908.jpg">
+    <div class="product-info">
+        <h3>ORO MathadoX</h3>
+        <p class="price">350 RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+
+<div class="product-card">
+    <img src="https://www.parasartfever.com/media/catalog/product/cache/6c3670ca188b1650becb84888fa79f03/d/u/dux_mathematical_geometry_box_b_13_p_195_.jpg">
+    <div class="product-info">
+        <h3>Dux MathBox</h3>
+        <p class="price">420 RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+
+<div class="product-card">
+    <img src="https://ssstationers.pk/cdn/shop/files/2_16865a8a-a8b9-46a0-af27-e632683366d4.png?v=1734415784&width=1445">
+    <div class="product-info">
+        <h3>A4 Paper</h3>
+        <p class="price">1250 RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+
+<div class="product-card">
+    <img src="https://lahorebooks.pk/image/cache/catalog/Paper%20Ream/A4%20copymate-800x800.jpg">
+    <div class="product-info">
+        <h3>Legal Paper</h3>
+        <p class="price">1350 RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+
+<div class="product-card">
+    <img src="https://lalabook.pk/wp-content/uploads/2025/01/APS-NOTEBOOK.gif">
+    <div class="product-info">
+        <h3>Notebook</h3>
+        <p class="price">50 / 100 / 150 / 200 RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+
+<div class="product-card">
+    <img src="https://www.tariqbookstore.com/web/image/product.product/1600/image_1024/Hard%20Cover%20Register%20300%20Pages%20-%20Local%20Paper?unique=d017b81">
+    <div class="product-info">
+        <h3>Register</h3>
+        <p class="price">50 / 100 / 150 / 200 RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+
+<div class="product-card">
+    <img src="https://copypencil.pk/cdn/shop/products/dux-6inch-scale-5.jpg?v=1658618747">
+    <div class="product-info">
+        <h3>Plastic Scale</h3>
+        <p class="price">6 Inch = 30/50 RS | 12 Inch = 60/100 RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+
+<div class="product-card">
+    <img src="https://static3.webx.pk/files/4688/Images/neon-hightlighter-01-4688-797041-250422124941094.jpg">
+    <div class="product-info">
+        <h3>Dollar Highlighter</h3>
+        <p class="price">50 / 60 / 80 / Double 100 RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+
+<div class="product-card">
+    <img src="https://static-01.daraz.pk/p/0ef68a4d6a31774dd1c373ebddc80cc2.jpg">
+    <div class="product-info">
+        <h3>Pencil Case</h3>
+        <p class="price">150 / 250 / 350 / 550 RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+
+<div class="product-card">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhuGiTdcQ6fwug1EWICr075zSFEQyUBzcOpw&s">
+    <div class="product-info">
+        <h3>Pouches</h3>
+        <p class="price">50 / 80 / 100 / 150 RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+
+<div class="product-card">
+    <img src="https://kassemstore.com/wp-content/uploads/2025/06/6224009529728.png">
+    <div class="product-info">
+        <h3>ClipBoard</h3>
+        <p class="price">60 / 100 / 120 / 150 / 180 / 250 RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+
+<div class="product-card">
+    <img src="https://img.drz.lazcdn.com/static/pk/p/e942250d06025e56f414b29f8181636e.jpg_720x720q80.jpg">
+    <div class="product-info">
+        <h3>Clear Bags</h3>
+        <p class="price">50 RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+
+<div class="product-card">
+    <img src="https://katib.pk/cdn/shop/products/SlideBarFileF4_1024x1024.jpg?v=1673619082">
+    <div class="product-info">
+        <h3>Slide Bar Files</h3>
+        <p class="price">30 / 50 RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+
+<div class="product-card">
+    <img src="https://cdn.recyclopedia.sg/strapi-assets/ring_files_3879665927.jpg">
+    <div class="product-info">
+        <h3>Ring Files</h3>
+        <p class="price">180 RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+
+<div class="product-card">
+    <img src="https://katib.pk/cdn/shop/products/DabbaFile_480x480.jpg?v=1678794371">
+    <div class="product-info">
+        <h3>Box Files</h3>
+        <p class="price">200 RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+
+<div class="product-card">
+    <img src="https://www.inkfactory.pk/wp-content/uploads/2019/10/Money-Envelop-0002-600x600.jpg">
+    <div class="product-info">
+        <h3>Marraige Card Envelopes</h3>
+        <p class="price">30 RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://essexgs.co.uk/wp-content/uploads/2025/08/BROWN-MANILA-ENVELOPES-PLAIN-COMMERCIAL.webp">
+    <div class="product-info">
+        <h3>Envelopes</h3>
+        <p class="price">5 / 10 / 20 RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://stationers.pk/cdn/shop/products/PaperCutterSmall.jpg?v=1673348394">
+    <div class="product-info">
+        <h3>Cutter</h3>
+        <p class="price">50 / 100 / 150 / 200 RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+
+<div class="product-card">
+    <img src="https://stationers.pk/cdn/shop/products/ST01660.jpg?v=1673351843">
+    <div class="product-info">
+        <h3>Stapler</h3>
+        <p class="price">50 / 130 / 350 / 450 RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+
+<div class="product-card">
+    <img src="https://www.saleemibookdepot.com/cdn/shop/files/ORO-Stapler-Pin-24-6-Art-No-641-1pcs-Saleemi-Book-Depot-in-35110171214127_1024x1024.jpg?v=1753885671">
+    <div class="product-info">
+        <h3>Stapler Pins</h3>
+        <p class="price">No10 = 50 RS | 24/6 = 80 / 100 RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://qasimstationers.pk/cdn/shop/files/Scotch_Tape_1_Inch_50_Yards.webp?v=1734893395">
+    <div class="product-info">
+        <h3>Scorch Tape</h3>
+        <p class="price">10,20,60,100,150,300RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+
+<div class="product-card">
+    <img src="https://lordtapes.com/wp-content/uploads/2021/08/Osaka-PVC-Electric-Tape-lordtapes.com_.jpg">
+    <div class="product-info">
+        <h3>PVC Tape</h3>
+        <p class="price">60RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://static-01.daraz.pk/p/aa4f31cadb4c7605bdf996f4e4624cd3.jpg">
+    <div class="product-info">
+        <h3>Binding/Flex Tape</h3>
+        <p class="price">100,300,550RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://images.ctfassets.net/f1fikihmjtrp/6D5v96tWum2g3pt9LilD0K/5f1b3e93eeb97932e38330f0ce95093a/24153-group-4ww.jpg">
+    <div class="product-info">
+        <h3>Drafting Tape</h3>
+        <p class="price">80,100,150RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://katib.pk/cdn/shop/files/46c1a9b7029134d5ed3ed73e53b4b239_1024x1024.jpg?v=1685604236">
+    <div class="product-info">
+        <h3>Double Tape</h3>
+        <p class="price">100,120RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://assany.pk/wp-content/uploads/2024/04/Shine-Tape-0.5-Inches.jpg">
+    <div class="product-info">
+        <h3>Shining Tape</h3>
+        <p class="price">30RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://shoukatsons.pk/cdn/shop/products/deerpencilcolor24.png?v=1708575283">
+    <div class="product-info">
+        <h3>Deer Pencil Colors</h3>
+        <p class="price">160,300RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://www.saleemibookdepot.com/cdn/shop/files/Deer-12-Colour-Pencil-Rainbow-Full-Card-Saleemi-Book-Depot-in-41030386450735.jpg?v=1754205430">
+    <div class="product-info">
+        <h3>Deer Pencil Colors Box</h3>
+        <p class="price">150,220RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://lahorebooks.pk/image/cache/catalog/302-800x800.jpg">
+    <div class="product-info">
+        <h3>ORO Pencil Colors Jar</h3>
+        <p class="price">400RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYG9-Z0Sdk2rYQQqTYMV-9mlRrqcMpOFI7tQ&s">
+    <div class="product-info">
+        <h3>ORO Pencil Colors Half Box</h3>
+        <p class="price">130RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://stationary.pk/wp-content/uploads/2026/03/Bahadur-Tango-Mini-Color-Pencil-Set-300x300.webp">
+    <div class="product-info">
+        <h3>Bahadur Pencil Colors Half</h3>
+        <p class="price">130RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://img.drz.lazcdn.com/static/pk/p/8f2267abe7278fec9192f2f98f4aa19e.jpg_720x720q80.jpg">
+    <div class="product-info">
+        <h3>Acrylic Paint Colors
+        </h3>
+        <p class="price">650RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://static-01.daraz.pk/p/d4fe053165bbdd494cf4a3113e799645.jpg">
+    <div class="product-info">
+        <h3>Poster Colors</h3>
+        <p class="price">250,450,750RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://m.media-amazon.com/images/I/61JIUFNohsL._AC_UF894,1000_QL80_.jpg">
+    <div class="product-info">
+        <h3>Water Colors</h3>
+        <p class="price">280RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div><div class="product-card">
+    <img src="https://img.lazcdn.com/g/p/e02253c47e3efcee7f933bdc4851c7eb.png_720x720q80.png">
+    <div class="product-info">
+        <h3>Marker Colors</h3>
+        <p class="price">150,200RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://static-01.daraz.pk/p/4076d56305401c85148f014932e93dc9.jpg">
+    <div class="product-info">
+        <h3>Dollar White Board INK</h3>
+        <p class="price">100RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://shoukatsons.pk/cdn/shop/products/dollarpeninkblue.png?v=1708575579&width=1445">
+    <div class="product-info">
+        <h3>Dollar Pen INK</h3>
+        <p class="price">60,100RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://shoukatsons.pk/cdn/shop/products/pianofountainpenink30mlblue.png?v=1708574986&width=1445">
+    <div class="product-info">
+        <h3>Piano Pen INK</h3>
+        <p class="price">50RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6qImoCRZSjzX-QFk0bGIz2EC476KmoW1sSQ&s">
+    <div class="product-info">
+        <h3>Paint Brush</h3>
+        <p class="price">150RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://www.saleemibookdepot.com/cdn/shop/files/KIds-Drawing-Book-3-age-Atlantic-Kids-8179-Saleemi-Book-Depot-in-36694069281071.webp?v=1753884609">
+    <div class="product-info">
+        <h3>Kids Drawing Book</h3>
+        <p class="price">60/100RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://m.media-amazon.com/images/I/81c3hQQAOaL._AC_UF1000,1000_QL80_.jpg">
+    <div class="product-info">
+        <h3>Sketch Book</h3>
+        <p class="price">250,300RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://static3.webx.pk/files/4688/Images/shark-white-craft-glue-100gms-1-4688-1880283-011023093030659.jpg">
+    <div class="product-info">
+        <h3>White Glue</h3>
+        <p class="price">150RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://static-01.daraz.pk/p/5f326a087d986e794433fb9ba7c99e20.jpg">
+    <div class="product-info">
+        <h3>Small UHU</h3>
+        <p class="price">60RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://nayabazar.pk/images/products/kIW4hfugYQUEAc9.jpeg">
+    <div class="product-info">
+        <h3>GMSA elfy</h3>
+        <p class="price">30RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://nayabazar.pk/images/products/36DuvkcvRcozjOO.webp">
+    <div class="product-info">
+        <h3>GMSA Super Bond</h3>
+        <p class="price">100RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://stationers.pk/cdn/shop/products/ST01527.jpg?v=1673351397">
+    <div class="product-info">
+        <h3>Punch Machine</h3>
+        <p class="price">400,500,600RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://img.drz.lazcdn.com/static/pk/p/18772d7d37ae3484e04da90c8149ab3e.jpg_720x720q80.jpg">
+    <div class="product-info">
+        <h3>Paper Soap</h3>
+        <p class="price">120RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://alfajrstore.com.pk/cdn/shop/files/1_eca2cfb3-27a3-457f-9540-e6f3c19d56b9.png?v=1734417970&width=1946">
+    <div class="product-info">
+        <h3>Dexin Mini Calculator</h3>
+        <p class="price">250RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://nayabazar.pk/images/products/YCYxePPtmhuh5x7.webp">
+    <div class="product-info">
+        <h3>Joinus Scientific</h3>
+        <p class="price">460RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://karachistationers.com/cdn/shop/products/1_e0d7acfa-b168-4f2d-b655-867a20a55d94.jpg?v=1637074699">
+    <div class="product-info">
+        <h3>Casio fx-991ES-plus</h3>
+        <p class="price">1350RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://shoukatsons.pk/cdn/shop/files/casiocalculatormj-120t-w.png?v=1709812055">
+    <div class="product-info">
+        <h3>Casio Check & Correct</h3>
+        <p class="price">580RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWcrOjfTDzUWFh29i82k9s3V8deuqnpMhRQw&s">
+    <div class="product-info">
+        <h3>Citizen Check & Corrent</h3>
+        <p class="price">460RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://cdn.shopify.com/s/files/1/0578/5826/1177/files/task_01khn0cykfekxre11mbfd1rs4a_1771305367_img_0_1024x.webp?v=1771305380">
+    <div class="product-info">
+        <h3>Crystal Stamp Pad</h3>
+        <p class="price">100RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://static3.webx.pk/files/4688/Images/0508b-staple-remover-4688-0-100224104857414.jpg">
+    <div class="product-info">
+        <h3>Staple Remover</h3>
+        <p class="price">120RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://harcheez.pk/wp-content/uploads/2023/07/a1c20616f936507ecdb2359d43bb7d6d.jpg_720x720q80.jpg">
+    <div class="product-info">
+        <h3>Ice Cream Sticks</h3>
+        <p class="price">60,100RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToycRxOxvOqTJpAShlr7Yzb9oQl2vwYqez_w&s">
+    <div class="product-info">
+        <h3>Colored Sticks</h3>
+        <p class="price">70,120RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/668f85dbcc6526590b0201fa_S201257-GLUE-GUN-SMALL_1_550.webp">
+    <div class="product-info">
+        <h3>Glue Gun Small</h3>
+        <p class="price">600RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS09AK3kN1y-DFRGWjFzxi0ClSPwaa_ds3pbA&s">
+    <div class="product-info">
+        <h3>7mm Glue Gun Stick</h3>
+        <p class="price">30RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://lzd-u.slatic.net/f7d1e79a12b143108eb77b0986be92a3_1649a00d863e46aeada63c19dab15dca.jpg">
+    <div class="product-info">
+        <h3>Glue Gun Large</h3>
+        <p class="price">750RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://img.drz.lazcdn.com/static/pk/p/847a7788bfa0b31d09e28d90de46c971.jpg_720x720q80.jpg">
+    <div class="product-info">
+        <h3>11mm Glue Gun Stick</h3>
+        <p class="price">50RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://static3.webx.pk/files/4688/Images/shark-lg-50-transparent-liquid-glue-50ml-4688-1874689-270923054705968.jpg">
+    <div class="product-info">
+        <h3>Shark Liquid Glue</h3>
+        <p class="price">70RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://static-01.daraz.pk/p/30bae373532d1a67f5a68bc4e961e503.jpg">
+    <div class="product-info">
+        <h3>Oro Correction Pen</h3>
+        <p class="price">80RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://katib.pk/cdn/shop/files/Softchartpaper_edf223bc-f304-4c82-be0c-ecab52c26186_1200x1200.webp?v=1729755828">
+    <div class="product-info">
+        <h3>Soft Chart Paper</h3>
+        <p class="price">50,60RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://www.varietystationers.pk/cdn/shop/files/51HJI8QVfFL._AC_UF1000_1000_QL80.jpg?v=1709995229&width=1445">
+    <div class="product-info">
+        <h3>Hard Chart Paper</h3>
+        <p class="price">80RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://stationers.pk/cdn/shop/products/whitechalks.jpg?v=1673355110">
+    <div class="product-info">
+        <h3>White Chalk Box</h3>
+        <p class="price">80RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://nayabazar.pk/images/products/aJQKRdxBtfaUvb3.webp">
+    <div class="product-info">
+        <h3>1KG Answer Paper</h3>
+        <p class="price">350,450RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://i.pinimg.com/736x/f4/64/16/f46416d9a66d4560baa06a02fcfcd1d1.jpg">
+    <div class="product-info">
+        <h3>Graph Paper</h3>
+        <p class="price">50RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://restomart.pk/wp-content/uploads/2024/10/Butter-paper-1-rim.webp">
+    <div class="product-info">
+        <h3>Butter Paper</h3>
+        <p class="price">30RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWyiSxzHa9U336moxK8q9Bi790cHN1DUYSSg&s">
+    <div class="product-info">
+        <h3>Glazed Paper</h3>
+        <p class="price">30RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTx8R69LhAv22a1zBMmjWpQoZzqDEUfowhkjA&s">
+    <div class="product-info">
+        <h3>Gift Paper</h3>
+        <p class="price">30RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://qasimstationers.pk/cdn/shop/files/Pull_Flower_Ribbon_For_Gift_Wrap_8_inch_Length_-_Pack_of_6.webp?v=1737438203">
+    <div class="product-info">
+        <h3>Gift Ribbon</h3>
+        <p class="price">10,20RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://queenfayzel.com/cdn/shop/collections/birthday_bundle_1.jpg?v=1761241876">
+    <div class="product-info">
+        <h3>Gift Card</h3>
+        <p class="price">10RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://static-01.daraz.pk/p/8835e01d6b0c7114a081cd724a00193d.jpg">
+    <div class="product-info">
+        <h3>WhiteBoard Duster</h3>
+        <p class="price">50RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://nayabazar.pk/images/products/0FmpBdunnjkyo6D.webp">
+    <div class="product-info">
+        <h3>Snow Spray</h3>
+        <p class="price">140RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://nayabazar.pk/images/products/468ENKj0KJokjPM.webp">
+    <div class="product-info">
+        <h3>Party Popper</h3>
+        <p class="price">80RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://stationers.pk/cdn/shop/products/giftbag.jpg?v=1673342734">
+    <div class="product-info">
+        <h3>Gift Bag</h3>
+        <p class="price">100,150,250RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5hnorcBFUOhqccdpV0xDnewGd2xeaqk47yw&s">
+    <div class="product-info">
+        <h3>Assignment Sheets</h3>
+        <p class="price">1x 50RS | 380RS FULL</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://katib.pk/cdn/shop/files/kcrcarbonblue_480x480.webp?v=1725442390">
+    <div class="product-info">
+        <h3>Carbon Paper</h3>
+        <p class="price">20RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://img.drz.lazcdn.com/static/pk/p/aaff2efa37d13b7a7dc914d25742543e.jpg_720x720q80.jpg">
+    <div class="product-info">
+        <h3>Invoice Book | Cash Memoo</h3>
+        <p class="price">120RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOPlHj42xKGWO0zi9oOsS2hzc9LoQQQVOt1Q&s">
+    <div class="product-info">
+        <h3>Lunch Box</h3>
+        <p class="price">430,500,600RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://appollostore.com/cdn/shop/files/hunter-water-bottle_500x.jpg?v=1776154893">
+    <div class="product-info">
+        <h3>Water Bottle</h3>
+        <p class="price">500,520,600RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://static-01.daraz.pk/original/6b77d6038992655680280b16bcf70f8d.jpg">
+    <div class="product-info">
+        <h3>Attendance Register</h3>
+        <p class="price">220,260,300RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://static-01.daraz.pk/p/7ef67b245d64ef39448b55b1fd750889.jpg">
+    <div class="product-info">
+        <h3>Roznamcha Register</h3>
+        <p class="price">400,500,600RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://katib.pk/cdn/shop/files/Nobel-AC-OA-STKR_a7d0a2d1-87d4-4930-a8f8-126a209ee270_600x600.jpg?v=1754375037">
+    <div class="product-info">
+        <h3>Account Register</h3>
+        <p class="price">400,500,600RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://cdn.mafrservices.com/sys-master-root/h3c/h8e/13342081941534/218583_main.jpg?im=Resize=376">
+    <div class="product-info">
+        <h3>School Bag</h3>
+        <p class="price">1000-3000RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://fajrscollection.pk/wp-content/uploads/2022/03/bag-3.jpg">
+    <div class="product-info">
+        <h3>Childrens Bag</h3>
+        <p class="price">800-1000RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://katib.pk/cdn/shop/files/8ce92dda195c6163d30517cd9be0dbaa_jpg_720x720q80_jpg_1024x1024.webp?v=1753448931">
+    <div class="product-info">
+        <h3>Compass</h3>
+        <p class="price">100RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://static3.webx.pk/files/4688/Images/deli-e9597-drafting-ruler-set-4-pcs-main-4688-1790664-250623081239828.jpg">
+    <div class="product-info">
+        <h3>Square Set</h3>
+        <p class="price">80RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://www.stationerystation.pk/images/productcontent/6df8af18-458c-49c1-838b-a10faf2de3c0.jpeg">
+    <div class="product-info">
+        <h3>Protractor</h3>
+        <p class="price">30RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYbq-3SLAiDCQpKNfOrJk1wePwGDA0Qcesmg&s">
+    <div class="product-info">
+        <h3>Kids White Board</h3>
+        <p class="price">150-200RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://tajquran.com/cdn/shop/files/3187_item_11.jpg?v=1778841447">
+    <div class="product-info">
+        <h3>Quran Parah 1-30</h3>
+        <p class="price">100RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://idara.com/wp-content/uploads/2021/01/Panj_Para_1-5_of_Quran3.jpg">
+    <div class="product-info">
+        <h3>Quran 5 Parah</h3>
+        <p class="price">250RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://img.drz.lazcdn.com/static/pk/p/ccbd0165ea9d4b837ef69bd82d5dc4b5.jpg_720x720q80.jpg">
+    <div class="product-info">
+        <h3>Happy Birthday Balloons</h3>
+        <p class="price">550RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://katib.pk/cdn/shop/products/writingpad_20solo-600x711_74e9bdd1-f571-4a5e-a6ee-924768652c81_1200x1200.webp?v=1673965029">
+    <div class="product-info">
+        <h3>Rough NotePad</h3>
+        <p class="price">50,80RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="Images/stationery/dead_teddy.jpg">
+    <div class="product-info">
+        <h3>X TeddyBear KeyChain</h3>
+        <p class="price">100RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="Images/stationery/sleeping_dolls.jpg">
+    <div class="product-info">
+        <h3>Sleeping Doll KeyChain</h3>
+        <p class="price">200RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="Images/stationery/doll_keychain.jpg">
+    <div class="product-info">
+        <h3>Doll KeyChain</h3>
+        <p class="price">100RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://pk-live-21.slatic.net/kf/Sdbfe24127bb44a519fd1c73a2a9006fdB.jpg">
+    <div class="product-info">
+        <h3>Logarithm Table</h3>
+        <p class="price">20RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://www.priyamstudycentre.com/wp-content/uploads/2021/03/periodic-table-elements-atomic-number-name-symbol-properties.png">
+    <div class="product-info">
+        <h3>Periodic Table</h3>
+        <p class="price">50RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://fantasybakery.in/cdn/shop/files/NumberCandle_1200x.jpg?v=1757575558">
+    <div class="product-info">
+        <h3>Number Candle</h3>
+        <p class="price">50RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://static-01.daraz.pk/p/9208179cfd9e70a41f3fe31d34e532a9.jpg">
+    <div class="product-info">
+        <h3>Kids Writing Tablet 8.5"</h3>
+        <p class="price">480RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://static-01.daraz.pk/p/36e0ded1d19efdcaa0fc4df9c1ba83bd.jpg">
+    <div class="product-info">
+        <h3>Kids Writing Tablet 6.5"</h3>
+        <p class="price">350RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEZMbEXSaP5vduQ-uYB-2ox45vmWW7Bt_3iw&s">
+    <div class="product-info">
+        <h3>Party Hat</h3>
+        <p class="price">60RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://pk-live-21.slatic.net/kf/S8924ee610f614a80a219237568d0a08ci.jpg">
+    <div class="product-info">
+        <h3>Glitter Sheets</h3>
+        <p class="price">50RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://karachistationers.com/cdn/shop/products/1_5e71db08-2c5a-4f5b-aa25-0b3df6673260.jpg?v=1637135613">
+    <div class="product-info">
+        <h3>Colored A4 Paper</h3>
+        <p class="price">7RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://www.tariqbookstore.com/web/image/product.product/25741/image_1920?unique=d017b81">
+    <div class="product-info">
+        <h3>Exam Bag</h3>
+        <p class="price">50,80,150,200RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfTlB4IgeA8Lx-TAxnKaSkTroHndzCW3Aocg&s">
+    <div class="product-info">
+        <h3>Rnext Clips</h3>
+        <p class="price">25RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://thumbs.dreamstime.com/b/common-pins-office-pins-common-pins-office-pins-194757343.jpg">
+    <div class="product-info">
+        <h3>Common Pin Full Box</h3>
+        <p class="price">100RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQj-qbgj9T3DyjsMCRVUKNtx7MKlRjK3gAAUw&s">
+    <div class="product-info">
+        <h3>Safety Pin</h3>
+        <p class="price">40RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="Images/stationery/football_keychains.jpg">
+    <div class="product-info">
+        <h3>FootBall Keychain</h3>
+        <p class="price">100RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="Images/stationery/honda_keys.jpg">
+    <div class="product-info">
+        <h3>Honda Keychain</h3>
+        <p class="price">50RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+<div class="product-card">
+    <img src="Images/stationery/crystal_heart_keys.jpg">
+    <div class="product-info">
+        <h3>Heart Keychain</h3>
+        <p class="price">150RS</p>
+        <button class="buy-btn">Buy Now</button>
+    </div>
+</div>
+
+
+
+
+ </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 AHMAD BOOK STORE | All Rights Reserved</p>
+        <p>📞 0333-0638689</p>
+        <a href="https://wa.me/923330638689" target="_blank" style="color: lime;"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="https://www.instagram.com/ahmadbookcentre24/" target="_blank" style="color: magenta;"><i class="fa-brands fa-instagram"></i></a>
+        <a href="tel:+923330638689"><i class="fa-solid fa-phone" style="color: aqua;"></i></a>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+
+        function openMenu() {
+            document.getElementById("sidebar").style.width = "250px";
+        }
+
+        function closeMenu() {
+            document.getElementById("sidebar").style.width = "0";
+        }
+
+        function searchProducts() {
+
+            let input = document.getElementById("searchInput").value.toLowerCase();
+
+            let cards = document.getElementsByClassName("product-card");
+
+            for(let i = 0; i < cards.length; i++) {
+
+                let title = cards[i].getElementsByTagName("h3")[0];
+
+                if(title.innerHTML.toLowerCase().indexOf(input) > -1) {
+                    cards[i].style.display = "";
+                } else {
+                    cards[i].style.display = "none";
+                }
+
+            }
+
+        }
+
+    </script>
+    <!-- WhatsApp Floating Button -->
+<a href="https://wa.me/923330638689" class="whatsapp-float" target="_blank">
+    <i class="fa-brands fa-whatsapp"></i>
+    <span>For Order WhatsApp</span>
+</a>
+
+<style>
+
+.whatsapp-float{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#25D366;
+    color:white;
+    padding:12px 18px;
+    border-radius:50px;
+    text-decoration:none;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:16px;
+    font-weight:bold;
+    box-shadow:0 5px 15px rgba(0,0,0,0.3);
+    z-index:999;
+    transition:0.3s;
+}
+
+.whatsapp-float i{
+    font-size:28px;
+}
+
+.whatsapp-float:hover{
+    background:#1ebe5d;
+    transform:scale(1.05);
+}
+
+@media(max-width:768px){
+
+    .whatsapp-float{
+        padding:10px 14px;
+        font-size:14px;
+    }
+
+    .whatsapp-float i{
+        font-size:24px;
+    }
+
+}
+
+</style>
+
+</body>
+</html>
