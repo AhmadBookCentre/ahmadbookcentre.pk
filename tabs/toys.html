@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Toys - AHMAD BOOK STORE</title>
+    <link rel="stylesheet" href="../style.css"/>
+    <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/5606/5606108.png">
+    <script src="https://kit.fontawesome.com/3c3ae5164d.js" crossorigin="anonymous"></script>
+
+    <style>
+
+        .search-section{
+padding:50px 20px;
+text-align:center;
+background:linear-gradient(135deg,#ffd700,#fff0a8);
+position:relative;
+overflow:hidden;
+}
+
+.search-section::before{
+content:'';
+position:absolute;
+width:300px;
+height:300px;
+background:rgba(255,255,255,.3);
+border-radius:50%;
+top:-120px;
+left:-120px;
+}
+
+.search-section input{
+width:90%;
+max-width:600px;
+padding:18px 25px;
+border:none;
+border-radius:50px;
+font-size:18px;
+outline:none;
+box-shadow:0 10px 30px rgba(0,0,0,.15);
+transition:.3s;
+}
+
+.search-section input:focus{
+transform:scale(1.02);
+box-shadow:0 15px 40px rgba(0,87,183,.25);
+}
+
+.search-section p{
+margin-top:15px;
+font-weight:600;
+color:#003366;
+}
+
+.products{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+    padding:60px 20px;
+    max-width:1200px;
+    margin:auto;
+}
+
+.product-card{
+    max-width:240px;
+    width:100%;
+    margin:auto;
+    background:white;
+    border-radius:20px;
+    overflow:hidden;
+    position:relative;
+    box-shadow:0 12px 30px rgba(0,0,0,.1);
+    transition:.4s;
+}
+
+.product-card::before{
+content:'';
+position:absolute;
+top:0;
+left:-100%;
+width:100%;
+height:100%;
+background:linear-gradient(
+90deg,
+transparent,
+rgba(255,255,255,.4),
+transparent
+);
+transition:.8s;
+}
+
+.product-card:hover::before{
+left:100%;
+}
+
+.product-card:hover{
+transform:translateY(-15px) scale(1.03);
+box-shadow:0 25px 60px rgba(0,87,183,.25);
+}
+
+.product-card img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+    transition:.5s;
+}
+
+.product-card:hover img{
+transform:scale(1.08);
+}
+
+.product-info{
+padding:15px;
+}
+
+.product-info h3{
+color:#0057b7;
+margin-bottom:10px;
+font-size:20px;
+font-weight:700;
+}
+
+.price{
+color:#ff6600;
+font-size:18px;
+font-weight:700;
+margin:10px 0;
+}
+
+.buy-btn{
+width:100%;
+padding:14px;
+border:none;
+border-radius:50px;
+background:linear-gradient(135deg,#0057b7,#0078ff);
+color:white;
+font-size:16px;
+font-weight:600;
+cursor:pointer;
+transition:.35s;
+}
+
+.buy-btn:hover{
+transform:translateY(-3px);
+box-shadow:0 10px 25px rgba(0,87,183,.35);
+}
+
+.whatsapp-float{
+position:fixed;
+bottom:25px;
+right:25px;
+background:linear-gradient(135deg,#25D366,#18b857);
+color:white;
+padding:14px 22px;
+border-radius:60px;
+text-decoration:none;
+display:flex;
+align-items:center;
+gap:12px;
+font-size:15px;
+font-weight:700;
+box-shadow:0 15px 35px rgba(37,211,102,.4);
+z-index:999;
+animation:pulse 2s infinite;
+}
+
+.whatsapp-float i{
+font-size:30px;
+}
+
+@keyframes pulse{
+0%{
+transform:scale(1);
+}
+50%{
+transform:scale(1.05);
+}
+100%{
+transform:scale(1);
+}
+}
+
+.whatsapp-float:hover{
+animation:none;
+transform:scale(1.08);
+}
+
+.product-card{
+animation:fadeUp .8s ease forwards;
+}
+
+@keyframes fadeUp{
+from{
+opacity:0;
+transform:translateY(40px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+@media(max-width:768px){
+
+
+.product-card{
+    max-width:360px;
+    margin:auto;
+}
+
+.search-section{
+    padding:40px 15px;
+}
+
+.search-section input{
+    font-size:16px;
+    padding:15px 20px;
+}
+
+.whatsapp-float{
+    padding:12px 16px;
+    font-size:13px;
+}
+
+.whatsapp-float i{
+    font-size:24px;
+}
+
+
+}
+
+
+    </style>
+
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div id="sidebar" class="sidebar">
+        <a href="javascript:void(0)" class="close-btn" onclick="closeMenu()">×</a>
+        <a href="../index.html">Home</a>
+        <a href="toys.html">Toys</a>
+        <a href="stationery.html">Stationery</a>
+        <a href="contact.html">Contact</a>
+        <a href="about.html">About</a>
+    </div>
+
+    <!-- Header -->
+    <header>
+
+        <span class="menu-btn" onclick="openMenu()">☰</span>
+
+        <div class="header-text">
+            <h1>AHMAD BOOK STORE</h1>
+            <p>Stationery Collection</p>
+        </div>
+
+        <nav class="desktop-nav">
+            <a href="../index.html">Home</a>
+            <a href="toys.html">Toys</a>
+            <a href="stationery.html">Stationery</a>
+            <a href="contact.html">Contact</a>
+            <a href="about.html">About</a>
+        </nav>
+
+    </header>
+
+    <!-- Search -->
+    <section class="search-section">
+        <input type="text" id="searchInput" placeholder="Search stationery items..." onkeyup="searchProducts()">
+        <p>For Orders Message 0333-0638689 On Whatsapp!</p>
+    </section>
+        <!-- Products -->
+    <section class="products" id="productList">
+
+        <div class="product-card">
+            <img src="https://static-01.daraz.pk/p/b93b943a2f7512a7ee948feccc64d8aa.jpg">
+            <div class="product-info">
+                <div class="product-badge">HOT</div>
+                <h3>Jiqun Rc Plane</h3>
+                <p class="price">2499 RS</p>
+                <button class="buy-btn"
+onclick="window.open('https://wa.me/923330638689?text=I want to order Piano Pen','_blank')">
+Buy Now
+</button>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="https://pk-live-21.slatic.net/kf/Saf997beb10df405d872e0827488f6ef6K.jpg">
+            <div class="product-info">
+                <div class="product-badge">HOT</div>
+                <h3>Clay Mitti x12</h3>
+                <p class="price">140 RS</p>
+                <button class="buy-btn"
+onclick="window.open('https://wa.me/923330638689?text=I want to order Piano Pen','_blank')">
+Buy Now
+</button>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="https://static-01.daraz.pk/p/d3203c84d39bdac15f49bec196aff874.png">
+            <div class="product-info">
+                <div class="product-badge">HOT</div>
+                <h3>Rubik Cube</h3>
+                <p class="price">400 RS</p>
+                <button class="buy-btn"
+onclick="window.open('https://wa.me/923330638689?text=I want to order Piano Pen','_blank')">
+Buy Now
+</button>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="https://maskidz.com/cdn/shop/files/6-4_2392d8fd-c8ed-4016-a518-c1aa2bde8ecd.jpg?v=1776770631">
+            <div class="product-info">
+                <div class="product-badge">HOT</div>
+                <h3>Moyu Professional Rubiks Cube</h3>
+                <p class="price">400 RS</p>
+                <button class="buy-btn"
+onclick="window.open('https://wa.me/923330638689?text=I want to order Piano Pen','_blank')">
+Buy Now
+</button>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="https://www.thepaperworm.com/cdn/shop/files/Handheld_Small_Portable_Fan_6bcfcef7-b109-474a-9b3a-8d4f5f5f4a7a.webp?v=1776422895&width=1445">
+            <div class="product-info">
+                <div class="product-badge">HOT</div>
+                <h3>Mini HandHeld Fan</h3>
+                <p class="price">850 RS</p>
+                <button class="buy-btn"
+onclick="window.open('https://wa.me/923330638689?text=I want to order Piano Pen','_blank')">
+Buy Now
+</button>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="https://i5.walmartimages.com/seo/AZXY-Portable-Fan-Hand-Held-Fans-on-Clearance-Mini-Fan-Handheld-Usb-Folding-Personal-Fans-Battery-Operated-White_4deda7b6-f1d3-48ed-9a85-f1595ba05466.402bcaf0396a32170f3fe77a881e2b22.jpeg">
+            <div class="product-info">
+                <div class="product-badge">HOT</div>
+                <h3>AZ Mini Fan</h3>
+                <p class="price">1200 RS</p>
+                <button class="buy-btn"
+onclick="window.open('https://wa.me/923330638689?text=I want to order Piano Pen','_blank')">
+Buy Now
+</button>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="https://static-01.daraz.pk/p/dc6ace8d23324ea22c00d6ab0e752e33.jpg">
+            <div class="product-info">
+                <div class="product-badge">HOT</div>
+                <h3>Local Rubik Cube</h3>
+                <p class="price">150 RS</p>
+                <button class="buy-btn"
+onclick="window.open('https://wa.me/923330638689?text=I want to order Piano Pen','_blank')">
+Buy Now
+</button>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="https://thetoyfactory.pk/cdn/shop/files/9_7b28fa15-c612-48ad-9bb9-05e7b977d8f8_1946x.jpg?v=1756668361">
+            <div class="product-info">
+                <div class="product-badge">HOT</div>
+                <h3>Model Car Ferrari</h3>
+                <p class="price">550 RS</p>
+                <button class="buy-btn"
+onclick="window.open('https://wa.me/923330638689?text=I want to order Piano Pen','_blank')">
+Buy Now
+</button>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="https://khanaan.pk/cdn/shop/products/WhatsAppImage2022-12-21at9.35.29AM-removebg-preview_500x500.png?v=1674033309">
+            <div class="product-info">
+                <div class="product-badge">HOT</div>
+                <h3>Model Car Nissan GTR</h3>
+                <p class="price">550 RS</p>
+                <button class="buy-btn"
+onclick="window.open('https://wa.me/923330638689?text=I want to order Piano Pen','_blank')">
+Buy Now
+</button>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="https://diecastkerala.in/cdn/shop/files/cff39dsvutv7dbm8v2a0.jpg?v=1720823926">
+            <div class="product-info">
+                <div class="product-badge">HOT</div>
+                <h3>Model Car Porsche</h3>
+                <p class="price">550 RS</p>
+                <button class="buy-btn"
+onclick="window.open('https://wa.me/923330638689?text=I want to order Piano Pen','_blank')">
+Buy Now
+</button>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="https://khanaan.pk/cdn/shop/products/WhatsAppImage2022-12-21at9.36.38AM-removebg-preview_500x500.png?v=1674033592">
+            <div class="product-info">
+                <div class="product-badge">HOT</div>
+                <h3>Model Car Lamborghini</h3>
+                <p class="price">550 RS</p>
+                <button class="buy-btn"
+onclick="window.open('https://wa.me/923330638689?text=I want to order Piano Pen','_blank')">
+Buy Now
+</button>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="https://toyzee.pk/wp-content/uploads/2022/12/WhatsAppImage2022-12-09at1.50.47PM_1280x.webp">
+            <div class="product-info">
+                <div class="product-badge">HOT</div>
+                <h3>Model Car Bugatti</h3>
+                <p class="price">550 RS</p>
+                <button class="buy-btn"
+onclick="window.open('https://wa.me/923330638689?text=I want to order Piano Pen','_blank')">
+Buy Now
+</button>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWbYKecnMb3q3gjTgUB5Zx52uEgWtoX_D5HQ&s">
+            <div class="product-info">
+                <div class="product-badge">HOT</div>
+                <h3>Model Car Supra</h3>
+                <p class="price">550 RS</p>
+                <button class="buy-btn"
+onclick="window.open('https://wa.me/923330638689?text=I want to order Piano Pen','_blank')">
+Buy Now
+</button>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="https://m.media-amazon.com/images/I/51scvyNOfGL._AC_UF1000,1000_QL80_.jpg">
+            <div class="product-info">
+                <div class="product-badge">HOT</div>
+                <h3>Small Size Rc Helicopter</h3>
+                <p class="price">1500 RS</p>
+                <button class="buy-btn"
+onclick="window.open('https://wa.me/923330638689?text=I want to order Piano Pen','_blank')">
+Buy Now
+</button>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="Images/toys/tripledolls.jpg">
+            <div class="product-info">
+                <div class="product-badge">HOT</div>
+                <h3>Dolls</h3>
+                <p class="price">700 RS | 250 per 1</p>
+                <button class="buy-btn"
+onclick="window.open('https://wa.me/923330638689?text=I want to order Piano Pen','_blank')">
+Buy Now
+</button>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="https://bachaaparty.com/cdn/shop/files/BPE_9462_c8c83855-12ed-4c80-9e7c-8accfcdfccd1.jpg?v=1742974423&width=1080">
+            <div class="product-info">
+                <div class="product-badge">HOT</div>
+                <h3>Kitty Slime</h3>
+                <p class="price">60 RS</p>
+                <button class="buy-btn"
+onclick="window.open('https://wa.me/923330638689?text=I want to order Piano Pen','_blank')">
+Buy Now
+</button>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="https://static-01.daraz.pk/p/cf38e0a62d9811d9cef65928df5eed89.png">
+            <div class="product-info">
+                <div class="product-badge">HOT</div>
+                <h3>Fluffy Slime</h3>
+                <p class="price">60 RS</p>
+                <button class="buy-btn"
+onclick="window.open('https://wa.me/923330638689?text=I want to order Piano Pen','_blank')">
+Buy Now
+</button>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="Images/toys/Gun M1911A1.jpg">
+            <div class="product-info">
+                <div class="product-badge">HOT</div>
+                <h3>Gun M1911A1</h3>
+                <p class="price">400 RS</p>
+                <button class="buy-btn"
+onclick="window.open('https://wa.me/923330638689?text=I want to order Piano Pen','_blank')">
+Buy Now
+</button>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="https://static-01.daraz.pk/p/f4356e0aff4d266718fa224f82db5839.jpg">
+            <div class="product-info">
+                <div class="product-badge">HOT</div>
+                <h3>Doremon With Drum</h3>
+                <p class="price">280 RS</p>
+                <button class="buy-btn"
+onclick="window.open('https://wa.me/923330638689?text=I want to order Piano Pen','_blank')">
+Buy Now
+</button>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="https://cdn.mafrservices.com/sys-master-root/h41/h06/13995378671646/197889_main.jpg">
+            <div class="product-info">
+                <div class="product-badge">HOT</div>
+                <h3>Gun AK-4</h3>
+                <p class="price">480 RS</p>
+                <button class="buy-btn"
+onclick="window.open('https://wa.me/923330638689?text=I want to order Piano Pen','_blank')">
+Buy Now
+</button>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="https://tiimg.tistatic.com/fp/1/009/325/mouser-toy-gun-493.jpg">
+            <div class="product-info">
+                <div class="product-badge">HOT</div>
+                <h3>Gun (Pistol)</h3>
+                <p class="price">380 RS</p>
+                <button class="buy-btn"
+onclick="window.open('https://wa.me/923330638689?text=I want to order Piano Pen','_blank')">
+Buy Now
+</button>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="https://img.drz.lazcdn.com/static/pk/p/45a6b86d96b84d150c19559980018cbf.jpg_720x720q80.jpg">
+            <div class="product-info">
+                <div class="product-badge">HOT</div>
+                <h3>Toy Mobile Phone</h3>
+                <p class="price">300 RS</p>
+                <button class="buy-btn"
+onclick="window.open('https://wa.me/923330638689?text=I want to order Piano Pen','_blank')">
+Buy Now
+</button>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="https://5.imimg.com/data5/SELLER/Default/2024/1/381677584/NU/CA/AV/154372857/educational-building-blocks.jpg">
+            <div class="product-info">
+                <div class="product-badge">HOT</div>
+                <h3>Building Blocks</h3>
+                <p class="price">550 RS</p>
+                <button class="buy-btn"
+onclick="window.open('https://wa.me/923330638689?text=I want to order Piano Pen','_blank')">
+Buy Now
+</button>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="https://static-01.daraz.pk/p/6d324ff5cf4b5689cf2be5edfc66c164.jpg">
+            <div class="product-info">
+                <div class="product-badge">HOT</div>
+                <h3>Remote Control Range Rover</h3>
+                <p class="price">1750 RS</p>
+                <button class="buy-btn"
+onclick="window.open('https://wa.me/923330638689?text=I want to order Piano Pen','_blank')">
+Buy Now
+</button>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQi81A9-4drPLjtLTTi3c9685NiqqJnsRAB8vvTvgo6lr_zBpnV">
+            <div class="product-info">
+                <div class="product-badge">HOT</div>
+                <h3>Remote Control BMW</h3>
+                <p class="price">1750 RS</p>
+                <button class="buy-btn"
+onclick="window.open('https://wa.me/923330638689?text=I want to order Piano Pen','_blank')">
+Buy Now
+</button>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="https://tajiron.com/public/uploads/all/84631655110857.jpg">
+            <div class="product-info">
+                <div class="product-badge">HOT</div>
+                <h3>Remote Control BMW Large</h3>
+                <p class="price">3250 RS</p>
+                <button class="buy-btn"
+onclick="window.open('https://wa.me/923330638689?text=I want to order Piano Pen','_blank')">
+Buy Now
+</button>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="Images/toys/Gun M1911A1.jpg">
+            <div class="product-info">
+                <div class="product-badge">HOT</div>
+                <h3>Gatta Ludo</h3>
+                <p class="price">S: 100RS | M:150RS | L:200RS | XL: 800RS</p>
+                <button class="buy-btn"
+onclick="window.open('https://wa.me/923330638689?text=I want to order Piano Pen','_blank')">
+Buy Now
+</button>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="https://static-01.daraz.pk/p/bfdd68e96b047b7af5d05419bf063f2b.jpg">
+            <div class="product-info">
+                <div class="product-badge">HOT</div>
+                <h3>Builder Set</h3>
+                <p class="price">1000 RS</p>
+                <button class="buy-btn"
+onclick="window.open('https://wa.me/923330638689?text=I want to order Piano Pen','_blank')">
+Buy Now
+</button>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="Images/toys/Kitchen.png">
+            <div class="product-info">
+                <div class="product-badge">HOT</div>
+                <h3>Kitchen Set 1</h3>
+                <p class="price">640 RS</p>
+                <button class="buy-btn"
+onclick="window.open('https://wa.me/923330638689?text=I want to order Piano Pen','_blank')">
+Buy Now
+</button>
+            </div>
+        </div>
+        </div>
+        <div class="product-card">
+            <img src="https://pos.tajiron.com/online_shop/22901669629447.jpg">
+            <div class="product-info">
+                <div class="product-badge">HOT</div>
+                <h3>Kitchen Set 2</h3>
+                <p class="price">860 RS</p>
+                <button class="buy-btn"
+onclick="window.open('https://wa.me/923330638689?text=I want to order Piano Pen','_blank')">
+Buy Now
+</button>
+            </div>
+        </div>
+        </div>
+        <div class="product-card">
+            <img src="https://sc04.alicdn.com/kf/Hbe83cdf3b1cf4c42a5039e12dc03b45fj.jpg">
+            <div class="product-info">
+                <div class="product-badge">HOT</div>
+                <h3>Kids Umbrella</h3>
+                <p class="price">900 RS</p>
+                <button class="buy-btn"
+onclick="window.open('https://wa.me/923330638689?text=I want to order Piano Pen','_blank')">
+Buy Now
+</button>
+            </div>
+        </div>
+        </div>
+        <div class="product-card">
+            <img src="https://img.drz.lazcdn.com/static/pk/p/f991a583541d0ed17f49a820afae0d15.jpg_960x960q80.jpg_.webp">
+            <div class="product-info">
+                <div class="product-badge">HOT</div>
+                <h3>Manual Hand Fan</h3>
+                <p class="price">260 RS</p>
+                <button class="buy-btn"
+onclick="window.open('https://wa.me/923330638689?text=I want to order Piano Pen','_blank')">
+Buy Now
+</button>
+            </div>
+        </div>
+           </div>
+        </div>
+        </div>
+        <div class="product-card">
+            <img src="https://static-01.daraz.pk/p/71016a019c62f24cb711f16a75d9deb2.jpg">
+            <div class="product-info">
+                <div class="product-badge">HOT</div>
+                <h3>Engineering train set</h3>
+                <p class="price">1400 RS</p>
+                <button class="buy-btn"
+onclick="window.open('https://wa.me/923330638689?text=I want to order Piano Pen','_blank')">
+Buy Now
+</button>
+            </div>
+        </div>
+
+
+    </section>
+       <!-- Footer -->
+    <footer>
+        <p>© 2026 AHMAD BOOK STORE | All Rights Reserved</p>
+        <p>📞 0333-0638689</p>
+        <a href="https://wa.me/923330638689" target="_blank" style="color: lime;"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="https://www.instagram.com/ahmadbookcentre24/" target="_blank" style="color: magenta;"><i class="fa-brands fa-instagram"></i></a>
+        <a href="tel:+923330638689"><i class="fa-solid fa-phone" style="color: aqua;"></i></a>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+
+        function openMenu() {
+            document.getElementById("sidebar").style.width = "250px";
+        }
+
+        function closeMenu() {
+            document.getElementById("sidebar").style.width = "0";
+        }
+
+        function searchProducts() {
+
+            let input = document.getElementById("searchInput").value.toLowerCase();
+
+            let cards = document.getElementsByClassName("product-card");
+
+            for(let i = 0; i < cards.length; i++) {
+
+                let title = cards[i].getElementsByTagName("h3")[0];
+
+                if(title.innerHTML.toLowerCase().indexOf(input) > -1) {
+                    cards[i].style.display = "";
+                } else {
+                    cards[i].style.display = "none";
+                }
+
+            }
+
+        }
+
+    </script>
+
+    <!-- WhatsApp Floating Button -->
+<a href="https://wa.me/923330638689" class="whatsapp-float" target="_blank">
+    <i class="fa-brands fa-whatsapp"></i>
+    <span>For Order WhatsApp</span>
+</a>
+
+<style>
+
+.whatsapp-float{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#25D366;
+    color:white;
+    padding:12px 18px;
+    border-radius:50px;
+    text-decoration:none;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:16px;
+    font-weight:bold;
+    box-shadow:0 5px 15px rgba(0,0,0,0.3);
+    z-index:999;
+    transition:0.3s;
+}
+
+.whatsapp-float i{
+    font-size:28px;
+}
+
+.whatsapp-float:hover{
+    background:#1ebe5d;
+    transform:scale(1.05);
+}
+
+@media(max-width:768px){
+
+    .whatsapp-float{
+        padding:10px 14px;
+        font-size:14px;
+    }
+
+    .whatsapp-float i{
+        font-size:24px;
+    }
+
+}
+
+</style>
+
+</body>
+</html>
